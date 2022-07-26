@@ -1,0 +1,16 @@
+export default {
+    "login.host": "CRM Server Address",
+    "login.host.error": "Please select CRM server address",
+    "login.client_id": "Client ID",
+    "login.client_id.error": "Please enter client ID",
+    "login.client_secret": "Client Secret",
+    "login.client_secret.error": "Please enter client secret",
+    "login.code": "Authorization Code",
+    "login.code.error": "Please enter authorization code",
+    "login.identity.authorization": "Identity Authorization",
+    "login.submit.btn": "Log in",
+    "login.remember": "Remember",
+    "login.user.guide": "Wave CRM User Guide",
+    "login.switch.server": "Switch Server",
+    "login.learn.package": "Learn more about Zoho CRM plans",
+};

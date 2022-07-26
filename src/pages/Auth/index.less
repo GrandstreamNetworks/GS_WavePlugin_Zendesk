@@ -1,0 +1,155 @@
+.errorDiv {
+  position: fixed;
+  top: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .errorMessage {
+    padding: 0 10px;
+    height: 32px;
+    background: #fff;
+    line-height: 32px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 0 4px #00000050;
+  }
+}
+
+.homePage {
+  width: 100%;
+  height: 528px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .form {
+    width: 320px;
+    margin: auto;
+
+    .selectIcon {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      font-size: 0;
+      top: 12px;
+      left: 11px;
+      z-index: 1;
+    }
+
+    .zohoHost {
+      width: 100%;
+      height: 90px;
+      margin-bottom: 64px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      background: #f5f7fa;
+      border-radius: 4px;
+      text-align: center;
+
+      .hostSpan {
+        font-size: 16px;
+        line-height: 18px;
+        color: #222222;
+      }
+    }
+
+    .changeHost {
+      margin-top: 19px;
+      height: 18px;
+      font-size: 14px;
+      line-height: 18px;
+      color: #3e95ed;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .remember {
+      margin-top: 16px;
+      line-height: 17px;
+      text-align: left;
+
+      :global {
+        .ant-checkbox-inner {
+          width: 14px;
+          height: 14px;
+        }
+
+        .ant-checkbox-wrapper {
+          font-size: 12px;
+          color: #6f737b;
+        }
+
+        .ant-checkbox-inner:after {
+          top: 5px;
+          left: 2px;
+        }
+      }
+    }
+
+    :global {
+      .ant-form-item {
+        margin-bottom: 0;
+      }
+
+      .ant-select {
+        height: 40px;
+        border-radius: 4px;
+        text-align: left;
+
+        &:hover {
+          .ant-select-selector {
+            border-color: #ffffff;
+          }
+        }
+      }
+
+      .ant-select-selector {
+        height: 40px;
+        padding-left: 42px;
+        background: #f5f7fa;
+        border-color: #ffffff;
+        box-shadow: none;
+        transition: border-color 0s;
+      }
+
+      .ant-select-focused:not(.ant-select-disable) .ant-select-selector {
+        background-color: #ffffff;
+        border-color: #3e95ed;
+        box-shadow: none;
+      }
+
+      .ant-select-selection-placeholder,
+      .ant-select-selection-item {
+        line-height: 38px;
+      }
+
+      .ant-select-arrow {
+        width: 24px;
+        height: 24px;
+        margin-top: -12px;
+      }
+
+      .ant-form-item-explain {
+        text-align: left;
+      }
+
+      .ant-btn {
+        width: 100%;
+        height: 40px;
+        background: #3e95ed;
+        border-color: #3e95ed;
+        border-radius: 24px;
+
+        &:hover {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
