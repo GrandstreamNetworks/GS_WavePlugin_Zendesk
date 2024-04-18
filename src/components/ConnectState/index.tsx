@@ -6,17 +6,15 @@ import PicSuccess from '@/asset/ConnectState/success.png';
 import PicFailure from '@/asset/ConnectState/failure.png';
 import styles from './index.less'
 
-interface Props {
+interface IndexProps {
     connectState: string
     user: LooseObject
     logout: () => void
 }
 
-const IndexPage: React.FC<Props> = ({ connectState, user, logout }) => {
+const IndexPage: React.FC<IndexProps> = ({ connectState, user, logout }) => {
     const { formatMessage } = useIntl();
-    /**
-     * 登出
-     */
+
     const logoutClick = () => {
         logout();
     };
@@ -27,7 +25,7 @@ const IndexPage: React.FC<Props> = ({ connectState, user, logout }) => {
                 <div className={styles.result}>
                     <Image src={PicSuccess} preview={false} />
                     <div>
-                        <p>{user.full_name}</p>
+                        <p>{user.name || user.email}</p>
                         <p>{formatMessage({ id: 'home.logged' })}</p>
                     </div>
                     <Button type="primary" onClick={logoutClick}>{formatMessage({ id: 'home.logout' })}</Button>
@@ -37,7 +35,7 @@ const IndexPage: React.FC<Props> = ({ connectState, user, logout }) => {
                 <div className={styles.result}>
                     <Image src={PicFailure} preview={false} />
                     <div>
-                        <p>{user.full_name}</p>
+                        <p>{user.name || user.email}</p>
                         <p>{formatMessage({ id: 'home.connectError' })}</p>
                     </div>
                     <Button type="primary" onClick={logoutClick}>{formatMessage({ id: 'home.logout' })}</Button>
@@ -47,7 +45,7 @@ const IndexPage: React.FC<Props> = ({ connectState, user, logout }) => {
                 <div className={styles.result}>
                     <Image src={PicFailure} preview={false} />
                     <div>
-                        <p>{user.full_name}</p>
+                        <p>{user.name || user.email}</p>
                         <p>{formatMessage({ id: 'home.invalidToken' })}</p>
                     </div>
                     <Button type="primary" onClick={logoutClick}>{formatMessage({ id: 'home.logout' })}</Button>

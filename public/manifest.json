@@ -1,0 +1,14 @@
+{
+  "name": "Zendesk",
+  "version": "1.0.3.2",
+  "description": "Zendesk is a fast, open, and flexible CRM platform that provides abundant customer-relationship management tools for maximum customer satisfaction. Zendesk integration with Wave further improves customer service capabilities, maintenance of customer correspondence, and synchronization of business goals.",
+  "icon": "./logo.png",
+  "extend_icon": "./extend_icon.png",
+  "permissions": [
+    "call.listen",
+    "custom.listen",
+    "contact.manage"
+  ],
+  "plugin_type": "background",
+  "minimum_SDK_version": "1.0.4"
+}

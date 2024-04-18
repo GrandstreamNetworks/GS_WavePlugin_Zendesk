@@ -12,25 +12,24 @@ export default defineConfig({
     antd: {},
     dva: {
         hmr: true,
-        lazyLoad: true,
+        lazyLoad: true
     },
     // https://umijs.org/zh-CN/plugins/plugin-locale
     locale: {
         // default zh-CN
-        default: 'en_US',
+        default: 'en-US',
         antd: true,
         baseNavigator: false,
-        baseSeparator: '_',
     },
     dynamicImport: {
-        loading: '@/components/PageLoading/index',
+        // loading: '@/components/PageLoading/index',
     },
     targets: {
         ie: 11,
     },
     routes,
     theme: {
-        'primary-color': '#1890ff',
+        'primary-color': '#3F8EF0',
     },
     title: false,
     ignoreMomentLocale: true,

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+  <title>logo/zoho</title>
+  <defs>
+    <rect id="path-1" x="0" y="0" width="16.5" height="16.5"></rect>
+  </defs>
+  <g id="账号菜单/桌面提醒" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="🚩桌面提醒-04样式" transform="translate(-1868.000000, -771.000000)">
+      <g id="编组-3" transform="translate(1860.000000, 483.000000)">
+        <g id="顶部备份-7" transform="translate(0.000000, 280.000000)">
+          <g id="logo/zoho" transform="translate(8.000000, 8.000000)">
+            <g id="icon-Zendesk" transform="translate(3.750000, 3.750000)">
+              <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+              </mask>
+              <use id="蒙版" fill="#FFFFFF" opacity="0" xlink:href="#path-1"></use>
+              <path d="M7.425,5.3625 L7.425,14.4375 L0,14.4375 L7.425,5.3625 Z M7.425,2.0625 C7.425,4.11285713 5.76285713,5.775 3.7125,5.775 C1.66214287,5.775 0,4.11285713 0,2.0625 L7.425,2.0625 Z M9.075,14.4375 C9.075,12.3871428 10.7371429,10.725 12.7875,10.725 C14.8378571,10.725 16.5,12.3871428 16.5,14.4375 L9.075,14.4375 L9.075,14.4375 Z M9.075,11.1375 L9.075,2.0625 L16.5,2.0625 L9.075,11.136696 L9.075,11.1375 Z" id="形状" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)"></path>
+            </g>
+            <rect id="矩形" x="0" y="0" width="24" height="24"></rect>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

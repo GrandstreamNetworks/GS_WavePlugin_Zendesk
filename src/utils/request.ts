@@ -3,54 +3,8 @@
  * 更详细的 api 文档: https://github.com/umijs/umi-request
  */
 import { formatMessage, Response } from 'umi'
-import { extend, RequestOptionsInit } from 'umi-request';
+import { extend } from 'umi-request';
 import { REQUEST_CODE, SESSION_STORAGE_KEY } from '@/constant'
-
-type RequestItem = {
-    id: number
-    url: string
-    options: RequestOptionsInit
-    reloadTimes: number
-}
-
-const requestList: RequestItem[] = [];
-
-const exist = (url: string): number => {
-    for (const index in requestList) {
-        if (requestList[index].url === url) {
-            return parseInt(index);
-        }
-    }
-    return -1;
-}
-
-/**
- * 异常处理程序
- */
-const errorRequest = (response: Response): Response | Promise<any> => {
-    const index = exist(response.url);
-    if (index !== -1) {
-        const needReloadRequest = requestList[index];
-        if (response && (response.status === REQUEST_CODE.serverTimeout || response.status === REQUEST_CODE.serverOverload)) {
-            if (needReloadRequest.reloadTimes <= 1) {
-                needReloadRequest.reloadTimes++;
-                return new Promise(resolve => {
-                    setTimeout(resolve, needReloadRequest.reloadTimes * 1000);
-                }).then(() => {
-                    return request(needReloadRequest.url, needReloadRequest.options);
-                })
-            } else {
-                requestList.splice(index, 1);
-                return {
-                    code: REQUEST_CODE.connectError,
-                    error: 'Connection exception.'
-                };
-            }
-        }
-    }
-    index !== -1 && requestList.splice(index, 1);
-    return response;
-};
 
 /**
  * 异常处理程序
@@ -81,46 +35,30 @@ const request = extend({
     // requestType: 'json',
     timeout: 5000,
     Accept: 'application/json',
-    // 'Content-Type': 'application/json; charset=utf-8',
-    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+    'Content-Type': 'application/json; charset=utf-8',
+    // 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
     // method: 'post',
     getResponse: false, // 是否获取源 response, 返回结果将包裹一层
 });
 
 request.interceptors.request.use((url, options) => {
     const headers = { ...options.headers };
-    if (exist(url) === -1) {
-        const timer = new Date().getTime();
-        requestList.push({
-            id: timer,
-            url,
-            options: {
-                ...options,
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                    ...headers,
-                    Authorization: `Zoho-oauthtoken ${sessionStorage.getItem(SESSION_STORAGE_KEY.token)}`,
-                },
-            },
-            reloadTimes: 0,
-        })
-    }
+    const token = sessionStorage.getItem(SESSION_STORAGE_KEY.token);
     return {
         url,
         options: {
             ...options,
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
                 ...headers,
-                Authorization: `Zoho-oauthtoken ${sessionStorage.getItem(SESSION_STORAGE_KEY.token)}`,
-                
             },
         },
     };
 });
 
 request.interceptors.response.use((response: Response) => {
-    return errorRequest(response);
+    return response;
 });
 
 export default request;
